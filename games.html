@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games — Summit Games Interactive</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="site-logo" href="index.html">
+        <img src="assets/summit1-final.png" alt="Summit Games Interactive">
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="games.html" class="active">Games</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="page-title">Our Games</h1>
+    <p class="page-subtitle">Everything we're building, and everything we've shipped.</p>
+    <div id="games-container"><p class="loading">Loading…</p></div>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2026 Summit Games Interactive. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="js/site.js"></script>
+  <script>initGames();</script>
+</body>
+</html>
