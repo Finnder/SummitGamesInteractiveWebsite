@@ -1,0 +1,2 @@
+# One game per line. Lines starting with # are ignored.
+dice-knight.md

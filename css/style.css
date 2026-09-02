@@ -1,14 +1,27 @@
 /* Summit Games Interactive — site styles */
 
 :root {
-  --bg: #0e1116;
-  --bg-raised: #161b22;
-  --border: #262d38;
+  --bg: #0d1017;
+  --bg-raised: #151a24;
+  --border: #252d3d;
   --text: #e6e9ef;
   --text-dim: #9aa4b2;
-  --accent: #f5a623;
-  --accent-soft: rgba(245, 166, 35, 0.12);
+  --brand: #0054ce;      /* Summit brand blue (from assets/summit1.pdf) */
+  --accent: #4d8dff;     /* lighter tint of brand blue, for text/links on dark */
+  --accent-soft: rgba(0, 84, 206, 0.16);
+  --header-bg: #0d1017;
   --max-width: 900px;
+}
+
+html.light {
+  --bg: #f6f8fb;
+  --bg-raised: #ffffff;
+  --border: #d7dde8;
+  --text: #16202e;
+  --text-dim: #5b6675;
+  --accent: #0054ce;     /* brand blue is readable directly on light */
+  --accent-soft: rgba(0, 84, 206, 0.08);
+  --header-bg: #f6f8fb;
 }
 
 * {
@@ -48,10 +61,9 @@ img {
 
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: rgba(14, 17, 22, 0.92);
+  background: var(--header-bg);
   position: sticky;
   top: 0;
-  backdrop-filter: blur(8px);
   z-index: 10;
 }
 
@@ -88,6 +100,23 @@ img {
 }
 
 .site-nav a.active {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: var(--bg-raised);
+  color: var(--text);
+  border: 1px solid var(--border);
+  width: 34px;
+  height: 34px;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
   color: var(--accent);
 }
 
@@ -142,17 +171,17 @@ main {
 
 .btn {
   display: inline-block;
-  background: var(--accent);
-  color: #14100a;
+  background: var(--brand);
+  color: #fff;
   font-weight: 600;
   padding: 0.7rem 1.4rem;
-  border-radius: 8px;
+  border-radius: 0;
   margin: 0 0.4rem;
 }
 
 .btn:hover {
   text-decoration: none;
-  filter: brightness(1.1);
+  filter: brightness(1.2);
 }
 
 .btn.secondary {
@@ -172,17 +201,16 @@ main {
 .card {
   background: var(--bg-raised);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 1.4rem;
   display: block;
   color: var(--text);
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease;
 }
 
 .card:hover {
   border-color: var(--accent);
   text-decoration: none;
-  transform: translateY(-2px);
 }
 
 .card h3 {
@@ -203,12 +231,14 @@ main {
 
 .tag {
   display: inline-block;
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--brand);
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.15rem 0.6rem;
-  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0;
   margin-bottom: 0.75rem;
 }
 
@@ -248,7 +278,7 @@ main {
 }
 
 .md-content blockquote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--brand);
   padding-left: 1rem;
   color: var(--text-dim);
   margin: 1rem 0;
@@ -257,7 +287,7 @@ main {
 .md-content code {
   background: var(--bg-raised);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 0.1rem 0.35rem;
   font-size: 0.9em;
 }
@@ -265,7 +295,7 @@ main {
 .md-content pre {
   background: var(--bg-raised);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 1rem;
   overflow-x: auto;
   margin-bottom: 1rem;
@@ -278,8 +308,26 @@ main {
 }
 
 .md-content img {
-  border-radius: 8px;
   margin: 1rem 0;
+}
+
+/* Pixel-art dice gallery (see content/games/dice-knight.md) */
+.dice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.dice-row img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  padding: 8px;
+  margin: 0;
 }
 
 .post-meta {
@@ -309,7 +357,8 @@ main {
 .contact-list li {
   background: var(--bg-raised);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 0;
+  border-left: 3px solid var(--brand);
   padding: 1.25rem 1.4rem;
   margin-bottom: 1rem;
 }
@@ -336,6 +385,7 @@ main {
 /* ---------- Misc ---------- */
 
 .loading,
+.empty,
 .error {
   color: var(--text-dim);
   padding: 2rem 0;

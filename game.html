@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Summit Games Interactive</title>
+  <title>Games — Summit Games Interactive</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/theme.js"></script>
 </head>
@@ -16,8 +16,8 @@
       </a>
       <nav class="site-nav">
         <a href="index.html">Home</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="games.html">Games</a>
+        <a href="blog.html">Blog</a>
+        <a href="games.html" class="active">Games</a>
         <a href="contact.html">Contact</a>
       </nav>
       <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀</button>
@@ -25,9 +25,7 @@
   </header>
 
   <main>
-    <h1 class="page-title">Blog</h1>
-    <p class="page-subtitle">Dev logs, announcements, and notes from the studio.</p>
-    <div id="blog-container"><p class="loading">Loading…</p></div>
+    <div id="game-container"><p class="loading">Loading…</p></div>
   </main>
 
   <footer class="site-footer">
@@ -36,6 +34,6 @@
 
   <script src="js/marked.min.js"></script>
   <script src="js/site.js"></script>
-  <script>initBlog();</script>
+  <script>initGame();</script>
 </body>
 </html>
